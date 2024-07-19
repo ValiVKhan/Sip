@@ -14,6 +14,7 @@
 		FBBE32C12C4AE67400B2D5E0 /* SipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBE32C02C4AE67400B2D5E0 /* SipTests.swift */; };
 		FBBE32CB2C4AE67400B2D5E0 /* SipUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBE32CA2C4AE67400B2D5E0 /* SipUITests.swift */; };
 		FBBE32CD2C4AE67400B2D5E0 /* SipUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBE32CC2C4AE67400B2D5E0 /* SipUITestsLaunchTests.swift */; };
+		FBBE334A2C4AEDC900B2D5E0 /* CoffeeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBE33492C4AEDC900B2D5E0 /* CoffeeFilter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		FBBE32C62C4AE67400B2D5E0 /* SipUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SipUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBBE32CA2C4AE67400B2D5E0 /* SipUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SipUITests.swift; sourceTree = "<group>"; };
 		FBBE32CC2C4AE67400B2D5E0 /* SipUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SipUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FBBE33492C4AEDC900B2D5E0 /* CoffeeFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeFilter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				FBBE32AF2C4AE67300B2D5E0 /* SipApp.swift */,
 				FBBE32B12C4AE67300B2D5E0 /* ContentView.swift */,
+				FBBE33492C4AEDC900B2D5E0 /* CoffeeFilter.swift */,
 				FBBE32B32C4AE67400B2D5E0 /* Assets.xcassets */,
 				FBBE32B52C4AE67400B2D5E0 /* Preview Content */,
 			);
@@ -257,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBBE334A2C4AEDC900B2D5E0 /* CoffeeFilter.swift in Sources */,
 				FBBE32B22C4AE67300B2D5E0 /* ContentView.swift in Sources */,
 				FBBE32B02C4AE67300B2D5E0 /* SipApp.swift in Sources */,
 			);
