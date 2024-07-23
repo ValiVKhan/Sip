@@ -5,13 +5,24 @@
 //  Created by Vali Khan on 7/19/24.
 //
 
-import MapKit
 import SwiftUI
+import MapKit
 
 struct Restaurant: Identifiable {
     let id = UUID()
     let coordinate: CLLocationCoordinate2D
     let name: String
+    let rating: Double
+}
+
+// Extension to make MKCoordinateRegion conform to Equatable
+extension MKCoordinateRegion: Equatable {
+    public static func == (lhs: MKCoordinateRegion, rhs: MKCoordinateRegion) -> Bool {
+        return lhs.center.latitude == rhs.center.latitude &&
+               lhs.center.longitude == rhs.center.longitude &&
+               lhs.span.latitudeDelta == rhs.span.latitudeDelta &&
+               lhs.span.longitudeDelta == rhs.span.longitudeDelta
+    }
 }
 
 struct ContentView: View {
@@ -21,59 +32,43 @@ struct ContentView: View {
     )
     
     @State private var restaurants: [Restaurant] = []
+    @State private var selectedRestaurant: Restaurant? = nil
     
     var body: some View {
         NavigationView {
             VStack {
                 Map(coordinateRegion: $region, annotationItems: restaurants) { restaurant in
-                    MapPin(coordinate: restaurant.coordinate, tint: .red)
+                    MapAnnotation(coordinate: restaurant.coordinate) {
+                        Button(action: {
+                            selectedRestaurant = restaurant
+                        }) {
+                            Image("pinImage")
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                        }
+                    }
                 }
                 .edgesIgnoringSafeArea(.all)
-                
-                HStack {
-                    Button(action: {
-                        zoomIn()
-                        searchForRestaurants()
-                    }) {
-                        Text("Zoom In")
-                            .padding()
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(8)
-                    }
-                    
-                    Button(action: {
-                        zoomOut()
-                        searchForRestaurants()
-                    }) {
-                        Text("Zoom Out")
-                            .padding()
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(8)
-                    }
-                }
-                .padding()
             }
-            .navigationTitle("Map View")
+            .navigationTitle("Coffee Around Me")
+            .background(
+                NavigationLink(
+                    destination: RestaurantDetailView(restaurant: selectedRestaurant ?? Restaurant(coordinate: CLLocationCoordinate2D(), name: "", rating: 0)),
+                    isActive: .constant(selectedRestaurant != nil),
+                    label: { EmptyView() }
+                )
+                .hidden()
+            )
+            .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("ReviewSubmitted"))) { _ in
+                selectedRestaurant = nil
+            }
         }
         .onAppear {
             searchForRestaurants()
         }
-    }
-    
-    private func zoomIn() {
-        var newSpan = region.span
-        newSpan.latitudeDelta /= 2
-        newSpan.longitudeDelta /= 2
-        region.span = newSpan
-    }
-    
-    private func zoomOut() {
-        var newSpan = region.span
-        newSpan.latitudeDelta *= 2
-        newSpan.longitudeDelta *= 2
-        region.span = newSpan
+        .onChange(of: region) { _ in
+            searchForRestaurants()
+        }
     }
     
     private func searchForRestaurants() {
@@ -93,7 +88,8 @@ struct ContentView: View {
             for item in mapItems {
                 let restaurant = Restaurant(
                     coordinate: item.placemark.coordinate,
-                    name: item.name ?? "Unknown"
+                    name: item.name ?? "Unknown",
+                    rating: Double.random(in: 1...5) // Random rating for example purposes
                 )
                 newRestaurants.append(restaurant)
             }

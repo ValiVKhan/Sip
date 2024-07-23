@@ -15,6 +15,8 @@
 		FBBE32CB2C4AE67400B2D5E0 /* SipUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBE32CA2C4AE67400B2D5E0 /* SipUITests.swift */; };
 		FBBE32CD2C4AE67400B2D5E0 /* SipUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBE32CC2C4AE67400B2D5E0 /* SipUITestsLaunchTests.swift */; };
 		FBBE334A2C4AEDC900B2D5E0 /* CoffeeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBE33492C4AEDC900B2D5E0 /* CoffeeFilter.swift */; };
+		FBBE334C2C503F8C00B2D5E0 /* RestaurantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBE334B2C503F8C00B2D5E0 /* RestaurantDetailView.swift */; };
+		FBBE334E2C50411000B2D5E0 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBE334D2C50411000B2D5E0 /* ReviewView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		FBBE32CA2C4AE67400B2D5E0 /* SipUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SipUITests.swift; sourceTree = "<group>"; };
 		FBBE32CC2C4AE67400B2D5E0 /* SipUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SipUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FBBE33492C4AEDC900B2D5E0 /* CoffeeFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeFilter.swift; sourceTree = "<group>"; };
+		FBBE334B2C503F8C00B2D5E0 /* RestaurantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailView.swift; sourceTree = "<group>"; };
+		FBBE334D2C50411000B2D5E0 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +101,9 @@
 			isa = PBXGroup;
 			children = (
 				FBBE32AF2C4AE67300B2D5E0 /* SipApp.swift */,
+				FBBE334D2C50411000B2D5E0 /* ReviewView.swift */,
 				FBBE32B12C4AE67300B2D5E0 /* ContentView.swift */,
+				FBBE334B2C503F8C00B2D5E0 /* RestaurantDetailView.swift */,
 				FBBE33492C4AEDC900B2D5E0 /* CoffeeFilter.swift */,
 				FBBE32B32C4AE67400B2D5E0 /* Assets.xcassets */,
 				FBBE32B52C4AE67400B2D5E0 /* Preview Content */,
@@ -260,6 +266,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBBE334E2C50411000B2D5E0 /* ReviewView.swift in Sources */,
+				FBBE334C2C503F8C00B2D5E0 /* RestaurantDetailView.swift in Sources */,
 				FBBE334A2C4AEDC900B2D5E0 /* CoffeeFilter.swift in Sources */,
 				FBBE32B22C4AE67300B2D5E0 /* ContentView.swift in Sources */,
 				FBBE32B02C4AE67300B2D5E0 /* SipApp.swift in Sources */,
